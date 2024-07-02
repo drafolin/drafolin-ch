@@ -1,14 +1,14 @@
 <script setup lang="ts">
-import { computed, ref } from 'vue';
-import { RouterLink } from 'vue-router';
-import MenuLinks from './MenuLinks.vue';
-import Pfp from './ThePfp.vue';
-import { useWindowScroll } from '@vueuse/core';
+import { computed, ref } from 'vue'
+import { RouterLink } from 'vue-router'
+import MenuLinks from './MenuLinks.vue'
+import Pfp from './ThePfp.vue'
+import { useWindowScroll } from '@vueuse/core'
 
-const menu = ref(false);
+const menu = ref(false)
 
 const scroll = useWindowScroll()
-const scrolled = computed(() => scroll.y.value > 10);
+const scrolled = computed(() => scroll.y.value > 10)
 </script>
 
 <template>
@@ -21,7 +21,7 @@ const scrolled = computed(() => scroll.y.value > 10);
           <span class="ml-4">Dråfølin</span>
         </RouterLink>
 
-        <MenuLinks @setMenu="(v: boolean) => menu = v" />
+        <MenuLinks @setMenu="(v: boolean) => (menu = v)" />
 
         <Teleport to="#app">
           <div :class="`wrap-menu ${menu ? ' active' : ''}`">
@@ -31,7 +31,7 @@ const scrolled = computed(() => scroll.y.value > 10);
                 <line :x1="28" :y1="2" :x2="2" y2="28" strokeWidth="2" />
               </svg>
             </button>
-            <MenuLinks @setMenu="(v: boolean) => menu = v" />
+            <MenuLinks @setMenu="(v: boolean) => (menu = v)" />
           </div>
         </Teleport>
 
@@ -48,14 +48,14 @@ const scrolled = computed(() => scroll.y.value > 10);
 </template>
 
 <style lang="scss" scoped>
-@use "@/assets/consts";
+@use '@/assets/consts';
 
 header {
   position: fixed;
   top: 0;
   left: 0;
   width: 100vw;
-  height: 6rem;
+  height: var(--header-height);
 
   &.scrolled {
     box-shadow: 0 0.5rem 1rem opacify(consts.$accent, 0.8);
@@ -110,7 +110,7 @@ header {
           align-self: center;
           margin: 0 0.5em;
 
-          &+span {
+          & + span {
             align-self: center;
             font-size: 2em;
             font-weight: 800;
@@ -118,7 +118,7 @@ header {
         }
       }
 
-      &>ul {
+      & > ul {
         display: flex;
         list-style: none;
         align-items: center;

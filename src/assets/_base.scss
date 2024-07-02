@@ -141,7 +141,7 @@ body {
     }
 
     main {
-      margin-top: 6rem;
+      margin-top: var(--header-height);
       min-height: calc(100vh - 6rem);
       display: flex;
       flex-direction: column;
@@ -154,6 +154,7 @@ body {
         align-items: center;
         justify-content: center;
         text-align: center;
+        margin: 5em 0;
 
         h1 {
           font-size: 3em;
@@ -165,6 +166,12 @@ body {
             font-size: 2em;
           }
         }
+      }
+
+      .fullscreen {
+        margin-top: 0 !important;
+        margin-bottom: 0 !important;
+        height: calc(100vh - var(--header-height));
       }
 
       .section {
