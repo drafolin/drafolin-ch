@@ -1,8 +1,8 @@
 <script setup lang="ts">
 const emit = defineEmits<{
-  setMenu: [newVal: boolean]
+  setMenu: [newVal: boolean];
 
-}>()  
+}>();
 </script>
 
 <template>
@@ -15,6 +15,11 @@ const emit = defineEmits<{
     <li>
       <RouterLink to="/about" @click="emit('setMenu', false)">
         About
+      </RouterLink>
+    </li>
+    <li>
+      <RouterLink to="/projects" @click="emit('setMenu', false)">
+        Projects
       </RouterLink>
     </li>
   </ul>
